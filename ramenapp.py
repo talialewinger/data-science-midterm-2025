@@ -10,7 +10,7 @@ st.title("🍜 Ramen Ratings Data Explorer")
 # Load data
 @st.cache_data
 def load_data():
-    url = "https://raw.githubusercontent.com/talialewinger/data-science-midterm-2025/main/ramen-ratings.csv"
+    url = "https://drive.google.com/uc?export=download&id=1jy8fZFfC1nEKe0-pDyPJOP7Ydd2mf5S6"
     df = pd.read_csv(url)
     return df
 
