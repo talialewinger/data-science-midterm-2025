@@ -8,7 +8,7 @@ st.set_page_config(layout="wide")
 st.title("🍜 Ramen Ratings Data Explorer")
 
 # Load data
-@st.cache_data
+@st.cache
 def load_data():
     url = "https://raw.githubusercontent.com/talialewinger/data-science-midterm-2025/main/ramen-ratings.csv"
     df = pd.read_csv(url)
@@ -81,4 +81,4 @@ elif section == "Top Ten by Year":
 
 # Optional: add GitHub repo link or credits
 st.sidebar.markdown("---")
-st.sidebar.markdown("Made by [Your Name](https://github.com/YOUR_GITHUB_USERNAME)")
+st.sidebar.markdown("Made by [talia/natalie](https://github.com/talialewinger)")
