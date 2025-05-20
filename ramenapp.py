@@ -10,7 +10,7 @@ st.title("🍜 Ramen Ratings Data Explorer")
 # Load data
 @st.cache_data
 def load_data():
-    url = "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/main/ramen-ratings.csv"
+    url = "https://drive.google.com/file/d/1jy8fZFfC1nEKe0-pDyPJOP7Ydd2mf5S6/view?usp=sharing"
     df = pd.read_csv(url)
     return df
 
