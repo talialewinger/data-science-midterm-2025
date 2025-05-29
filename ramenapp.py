@@ -23,27 +23,28 @@ df_clean['Stars'] = df_clean['Stars'].astype(float)
 # Sidebar
 st.sidebar.header("Navigation")
 section = st.sidebar.radio("Jump to Section:", [
-    "Distribution of Ratings",
-    "Ratings by Style",
-    "Ratings by Country",
-    "Top Ten by Year"
+    "Size of the Data",
+    "Understanding the Meaning",
+    "Shape of the Variables",
+    "Relationships Among Variables",
+    "Comparing Variables",
+    "Examining Trends in Variables"
 ])
 
 # Plot 1: Distribution of Ratings (including Unrated)
-if section == "Distribution of Ratings":
-    st.subheader("Distribution of Ramen Ratings (Including Unrated)")
-    ordered_stars = sorted(df['Stars'].dropna().unique(), key=lambda x: float(x) if x != 'Unrated' else -1)
-    
-    fig, ax = plt.subplots(figsize=(14, 6))
-    sns.countplot(data=df, x='Stars', order=ordered_stars, ax=ax)
-    ax.set_title('Distribution of Ramen Ratings')
-    ax.set_xlabel('Stars')
-    ax.set_ylabel('Count')
-    plt.xticks(rotation=45)
-    st.pyplot(fig)
+if section == "Size of the Data":
+    st.subheader("Number of Rows and Columns")
+
+    # Get the number of rows and columns
+    num_rows = df.shape[0]
+    num_cols = df.shape[1]
+
+    # Display the result in the Streamlit app
+    st.write(f"Number of rows: {num_rows}")
+    st.write(f"Number of columns: {num_cols}")
 
 # Plot 2: Ratings by Style
-elif section == "Ratings by Style":
+elif section == "Understanding the Meaning":
     st.subheader("Ramen Ratings by Style")
     
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -55,7 +56,7 @@ elif section == "Ratings by Style":
     st.pyplot(fig)
 
 # Plot 3: Average Rating by Country
-elif section == "Ratings by Country":
+elif section == "Shape of the Variables":
     st.subheader("Average Ramen Rating by Country")
     
     fig, ax = plt.subplots(figsize=(14, 6))
@@ -67,7 +68,7 @@ elif section == "Ratings by Country":
     st.pyplot(fig)
 
 # Plot 4: Top Ramen by Year
-elif section == "Top Ten by Year":
+elif section == "Relationships Among Variables":
     st.subheader("Top Ramen Products by Year")
     
     df_clean['Year'] = df_clean['Top Ten'].str.extract(r'(\d{4})')
